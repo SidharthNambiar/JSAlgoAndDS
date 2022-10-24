@@ -223,15 +223,65 @@ function printAllPairs(n) {
   - if `n` = 2 -> [00, 01, 10, 11]: 4 pairs 
   - if `n` = 3 -> [00, 01, 02,...]: 9 pairs
 
->![Performance Tracker](/assets/02-02.png)
+>![Big O(n^2)](/assets/02-02.png)
 >`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime growth is <ins>quadratic</ins>.
 
 >An `O(n)` inside an `O(n)` is `O(n`<sup>`2`</sup>`)`
 ___
 ## 6. Simplifying Big O Expressions
 
+### A. General Rules
 
+#### Rule 1 - **<ins>Constants Don't Matter</ins>**
 
+>![Constants Don't Matter](/assets/02-03.png)
+
+#### Rule 2 - **<ins>Smaller Terms Don't Matter</ins>**
+
+>![Small Terms Don't Matter](/assets/02-04.png)
+
+#### Rule 3 - **<ins>Arithmetic Operations are Constant</ins>**
+
+> Arithmetic operations roughly take the same amount of time regardless the size of `n`
+
+#### Rule 4 - **<ins>Variable Assignment is Constant</ins>**
+
+> Variable assignment roughly takes the same amount of time regardless of the size of `n`
+
+#### Rule 5 - **<ins>Accessing Element in an Array(by index) or Object(by key) is Constant</ins>**
+
+> Accessing an element in an array or an object is roughly the same time regardless of `n`
+
+#### Rule 6 - **<ins>Loop Complexity is based on length of loop times the inner complexity of the loop</ins>**
+> In a loop, the complexity is the length of the loop times the complexity of whatever happens inside of the loop
+
+### B. Examples
+
+1. #### Log at least Five
+
+```
+function logAtLeat5(n) {
+  for (let i = 0; i < Math.max(5, n); i++){
+    console.log(i)
+  }
+}
+```
+>Big O is `O(n)`
+
+2. #### Log at most Five
+
+```
+function logAtMost5(n) {
+  for (let i = 0; i < Math.min(5, n); i++) {
+    console.log(i);
+  }
+}
+```
+>Big O is `O(1)`
+
+### C. Big O Complexity Chart
+
+>![Big O Complexity Chart](/assets/02-05.png)
 ___
 ## 7. Space Complexity
 
