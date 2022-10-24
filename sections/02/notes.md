@@ -5,6 +5,7 @@
 ### A. Objectives
 
 - Motivation for needing BigO Notation
+
 - Describe Big O Notation
 - Simplify Big O Notations
 - Define "time" and "space" complexities
@@ -20,6 +21,7 @@
 
 ### D. Why care about Big O?
 - Gives us precise vocabulary to talk about how our code performs
+
 - Useful for discussing trade-offs between different approaches
 - Identify inefficiencies in our code
 - Interviews
@@ -50,6 +52,7 @@ function addUpTo(n) {
 
 Which code is "better"? And what does "better" mean?
 - faster ?
+
 - less memory-intensive ?
 - more readable ?
 
@@ -96,6 +99,7 @@ function addUpTo(n) {
 ```
 Counting operations for the faster solution:
 1. Multiplication - `n * ...`
+
 2. Addition - `n + ...`
 3. Division - `...) / 2`
 > There are 3 simple operations, regardless of the size of `n`
@@ -112,15 +116,125 @@ function addUpTo(n) {
 ```
 Counting operations for the slower solution:
 - n additions 
+
   1. `total = total + i`
+
   2. `i++` shorthand for `i = i + 1`
 - n assignments 
   1. `total = total + i`
+
   2. `i++` shorthand for `i = i + 1`
 - 1 assignment
   1. `total = 0`
+
   2. `i = 1`
 - n comparison
   1. `i <= n`
-> Depeneding on what we count, the number of operations can be as low as 2n or as high as 5n+2. But regardless of the exact number, the number of operations grow roughly proportionally with n
+> Depending on what we count, the number of operations can be as low as 2n or as high as 5n+2. But regardless of the exact number, the number of operations grow roughly proportionally with n
+___
+## 4. Visualizing Time Complexities
 
+### A. Performance Tracker
+> Link To: [Performance Tracker](https://rithmschool.github.io/function-timer-demo/)
+
+>![Performance Tracker](/assets/02-01.png)
+>In regards to the example above, as `n` increases, the execution time for the faster solution remains <ins>constant</ins>, whereas, for the slower solution, the time continues to increase <ins>linearly</ins>, as seen from the graph above.
+___
+## 5. Official Intro to Big O
+
+### A. Big O
+- Big O Notation is a way to formalize fuzzy counting
+
+- It allows us to talk formally about how the runtime of an algorithm grows as the input grows
+
+- We don't care about the details, only the broad trends
+
+>We say that an algorithm is **`O(f(n))`** if the number of simple operations the computer has to do is eventually less than a constant times **`f(n)`**, as **n** increases
+> - f(n) could be linear (`f(n) = n`)
+> - f(n) could be quadtratic (`f(n) = n`<sup>`2`</sup>)
+> - f(n) could be constant (`f(n) = 1`)
+> - f(n) could be entirely different
+
+- Big O refers to the <ins>**worst case**</ins> scenario, i.e. the upperbound of runtime.
+
+### B. Example
+
+#### 1. Faster Solution:
+
+```
+function addUpTo(n) {
+  return n * (n + 1) / 2;
+}
+```
+- Always 3 operations: `O(1)`
+>As `n` grows there's no change in the runtime
+
+#### 2. Slower Solution:
+
+```
+function addUpTo(n) {
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    total += i;
+  }
+  return total;
+}
+```
+- Always 5n +2 operations: `O(n)`
+>As `n` grows the number of operations is eventually bounded by a multiple of `n`, `O(n)`
+
+#### 3. Count Up and Down:
+
+```
+function countUpAndDown(n) {
+
+  console.log("Going Up")
+
+  for (let i = 0; i < n; i++){
+    console.log(i)
+  }
+
+  console.log("At the top. \n Going down.")
+
+  for (let j = n - 1; j >= 0; j--){
+    console.log(j)
+  }
+
+  console.log("Back Down")
+}
+```
+- First for loop: `O(n)`
+- Second for loop: `O(n)`
+>You might think that Big O is `2n`, but the number of operations is (eventually) bounded by a multiple of `n`, so we simplify it to `O(n)` 
+
+#### 4. Print All Pairs:
+
+```
+function printAllPairs(n) {
+  for (let i = 0; i < n; i++){
+    for (let j = 0; j < n; j++){
+      console.log(i,j)
+    }
+  }
+}
+```
+- First for loop: `O(n)`
+- Nested loop: `O(n)`
+  - if `n` = 2 -> [00, 01, 10, 11]: 4 pairs 
+  - if `n` = 3 -> [00, 01, 02,...]: 9 pairs
+
+>![Performance Tracker](/assets/02-02.png)
+>`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime grows <ins>exponentially</ins>.
+
+>An `O(n)` inside an `O(n)` is `O(n`<sup>`2`</sup>`)`
+___
+## 6. Simplifying Big O Expressions
+
+
+
+___
+## 7. Space Complexity
+
+
+___
+## 8. Logs and Section Recap
