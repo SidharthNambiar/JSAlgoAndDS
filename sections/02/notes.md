@@ -224,7 +224,7 @@ function printAllPairs(n) {
   - if `n` = 3 -> [00, 01, 02,...]: 9 pairs
 
 >![Performance Tracker](/assets/02-02.png)
->`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime grows <ins>exponentially</ins>.
+>`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime growth is <ins>quadratic</ins>.
 
 >An `O(n)` inside an `O(n)` is `O(n`<sup>`2`</sup>`)`
 ___
