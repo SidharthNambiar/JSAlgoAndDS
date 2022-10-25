@@ -137,7 +137,7 @@ ___
 ### A. Performance Tracker
 > Link To: [Performance Tracker](https://rithmschool.github.io/function-timer-demo/)
 
->![Performance Tracker](/assets/02-01.png)
+>![Performance Tracker](02-01.png)
 >In regards to the example above, as `n` increases, the execution time for the faster solution remains <ins>constant</ins>, whereas, for the slower solution, the time continues to increase <ins>linearly</ins>, as seen from the graph above.
 ___
 ## 5. Official Intro to Big O
@@ -223,7 +223,7 @@ function printAllPairs(n) {
   - if `n` = 2 -> [00, 01, 10, 11]: 4 pairs 
   - if `n` = 3 -> [00, 01, 02,...]: 9 pairs
 
->![Big O(n^2)](/assets/02-02.png)
+>![Big O(n^2)](02-02.png)
 >`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime growth is <ins>quadratic</ins>.
 
 >An `O(n)` inside an `O(n)` is `O(n`<sup>`2`</sup>`)`
@@ -234,11 +234,11 @@ ___
 
 #### Rule 1 - **<ins>Constants Don't Matter</ins>**
 
->![Constants Don't Matter](/assets/02-03.png)
+>![Constants Don't Matter](02-03.png)
 
 #### Rule 2 - **<ins>Smaller Terms Don't Matter</ins>**
 
->![Small Terms Don't Matter](/assets/02-04.png)
+>![Small Terms Don't Matter](02-04.png)
 
 #### Rule 3 - **<ins>Arithmetic Operations are Constant</ins>**
 
@@ -281,10 +281,58 @@ function logAtMost5(n) {
 
 ### C. Big O Complexity Chart
 
->![Big O Complexity Chart](/assets/02-05.png)
+>![Big O Complexity Chart](02-05.png)
 ___
 ## 7. Space Complexity
 
+### A. Space vs Time Complexities
+
+##### Time Complexity
+>How can we analyze the **<ins>runtime</ins>** of an algorithm as the **<ins>size of the inputs</ins>** increases
+##### Space Complexity
+>How much additional **<ins>memory</ins>** do we need to allocate in order to **<ins>run the code</ins>** in our algorithm
+
+### B. What about the inputs?
+>When we talk about space complexity, we are talking about **<ins>auxiallry space complexity**</ins>, which refers to the space required by the algorithm, not including the space taken up the inputs. So we don't care about the space taken by the input, since we know that as the input grows, the space needed to accomodate that input will also increase.
+
+### A. General Rules
+#### Rule 1 - **<ins>Most Primitives are Constant Space</ins>**
+>Booleans, numbers, undefined, null, bigint
+#### Rule 2 - **<ins>Strings are NOT Constant Space</ins>**
+>Strings require `O(n)` space, where `n` is the string length
+#### Rule 3 - **<ins>Arrays and Objects are generally `O(n)`</ins>**
+>Reference types are generally `O(n)`, where `n` is the length (for arrays) or the number of keys (for objects)
+
+### B. Example
+1. Sum
+>![Sum Example](02-06.png)
+> No matter the size of the input, the space taken up is constant, therefore, Big O is `O(1)`
+
+2. Double
+>![Sum Example](02-07.png)
+> As the input grows, the newArr grows directly in proportion to it, therefore, Big O is `O(n)`
 
 ___
 ## 8. Logs and Section Recap
+>Sometimes Big O expressions involve more complex mathematical expressions, such as logarithms
+
+### A. What's LOG?
+>Logorithm is the inverse of exponentiation
+>![Log Example 1](02-08.png)
+>Logarthim isn't always base 2, but we only care about the big picture, the general trend.
+
+### B. What does logarithm of a number mean?
+>![Log Example 2](02-09.png)
+>The logarithm of a number roughly measures the number of times you divide that number by 2 before you get a value that is **<ins>less than or equal to 1.</ins>**
+
+### C. Logarithmic Time Complexity is GREAT!
+>![Big O Complexity Chart](02-05.png)
+> - Certain <ins>searching</ins> algorithms have logarithmic **time** complexity
+> - Efficient <ins>sorting</ins> algorithms involve logarithms
+> - <ins>Recursion</ins> sometimes involves logarithmic <ins>space</ins> complexity
+___
+## Recap
+> - To analyze the performance of an algorithm, we use Big O notation
+> - Big O Notation can give us a high level understanding of the time or space (auxillary) complexity of an algorithm
+> - Big O Notation doesn't care about precision, only about trends
+> - The time and space complexity only depends on the algorithm, not the hardware used to run the algorithm
