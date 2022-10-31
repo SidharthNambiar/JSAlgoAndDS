@@ -179,7 +179,7 @@ function countUniqueValues(sortedArr) {
 
 ```
 >In this naive solution, `no pointers` are used. The Big O for time complexity is `O(n)` and for space complexity, it is `O(n)` since we are using an object to store unique counts.
-#### Refactored Solution:
+#### Refactored Solution (using `Multiple Pointers Pattern`):
 
 ```
 //Big O space: O(1) ; unlike previous solution, now a primitive value is used to keep track of unique values
@@ -214,6 +214,58 @@ function countUniqueValues(sortedArr) {
 ___
 
 ## Sliding Window Pattern
+>This pattern involves creating a `window` which can either be an array or number from one position to another. Depending on a certain condition, the window either increases or closes(and a new window is created). Very useful for keeping `track` of a `subset of data` in an array/string etc.
+
+### <ins>EXAMPLE: maxSubarraySum</ins>
+1. Write a function called maxSubarraySum which accepts an array of integers and a number called `n`. The function should calculate the maximum sum of `n` consecutive elements in the array.
+
+#### Naive Solution:
+```// naive solution
+// Big O: time complexity = O(n^2)
+// Big O: space complexity
+
+function maxSubarraySum(arr, num) {
+  let max = -Infinity;
+  let sum = 0;
+  let lastIndex = arr.length - 1;
+
+  if (arr.length === 0) return null;
+
+  for (let i = 0; i <= lastIndex - num; i++) {
+    for (let j = i; j < i + num; j++) {
+      sum += arr[j];
+    }
+
+    if (sum > max) {
+      max = sum;
+    }
+    sum = 0;
+  }
+  return max;
+}
+
+```
+>In the naive solution, the Big O for time complexity is `O(n`<sup>`2`</sup>`)` since nested loops are being utilized.
+
+#### Refactored Solution (using `Sliding Window Pattern`):
+```
+function maxSubarraySum(arr, num){
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+
+```
+>The Big O in this case for time complexity is `O(n)` since two separate loops are being utilized as oppose to the naive solution which uses nested loops.
 ___
 
 ## Divide And Conquer Pattern
