@@ -162,6 +162,55 @@ function sumZero(sortedArr) {
 2. Implement a function valled countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
 
 #### Naive Solution:
+
+```
+function countUniqueValues(sortedArr) {
+  if (sortedArr.length === 0) {
+    return 0;
+  }
+
+  let uniqueCount = {};
+  for (let value of sortedArr) {
+    uniqueCount[value] = (uniqueCount[value] || 0) + 1;
+  }
+
+  return Object.keys(uniqueCount).length;
+}
+
+```
+>In this naive solution, `no pointers` are used. The Big O for time complexity is `O(n)` and for space complexity, it is `O(n)` since we are using an object to store unique counts.
+#### Refactored Solution:
+
+```
+//Big O space: O(1) ; unlike previous solution, now a primitive value is used to keep track of unique values
+
+
+function countUniqueValues(sortedArr) {
+  if (!sortedArr.length) {
+    return 0;
+  }
+  if (sortedArr.length === 1) {
+    return 1;
+  }
+
+  let firstPointerIndex = 0;
+  let secondPointerIndex = 1;
+  let count = 1;
+
+  while (secondPointerIndex <= sortedArr.length - 1) {
+    if (sortedArr[firstPointerIndex] === sortedArr[secondPointerIndex]) {
+      secondPointerIndex++;
+    } else {
+      firstPointerIndex = secondPointerIndex;
+      count++;
+    }
+  }
+  return count;
+}
+
+```
+> The Big O is `O(n)` for time complexity, and `O(1)` for space complexity since a primitive variable is used to store count.
+
 ___
 
 ## Sliding Window Pattern

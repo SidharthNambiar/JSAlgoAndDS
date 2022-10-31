@@ -1,7 +1,8 @@
 // 2. Implement a function valled countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
 
 //refactored
-
+// Big O time: O(n)
+// Big O space: O(n) since an object is used to store unique counts
 function countUniqueValues(sortedArr) {
 
   let firstPointerIndex = 0;
