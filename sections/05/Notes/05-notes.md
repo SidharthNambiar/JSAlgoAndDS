@@ -269,3 +269,42 @@ function maxSubarraySum(arr, num){
 ___
 
 ## Divide And Conquer Pattern
+>This pattern involves dividing a data set into smaller chunks and then repeating a process with a subset of data. this pattern can `decrease time complexity`. Examples of divide and conquer algorithms: `quick sort, merge sort, binary search`
+
+### <ins>EXAMPLE: search</ins>
+1. Given a `sorted` array of integers, write a function called search, that accepts a value and returns the index where the value passed to the function is located. If the value is not found, return -1.
+
+#### Naive Solution:
+```
+function search(arr, value) {
+  if (!arr.includes(value)) return -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === value) {
+      return i;
+    }
+  }
+}
+```
+> The Big O time complexity for this naive solution is `O(n)`, since `n` increases `linearly`.
+
+#### Refactored Solution (using `Divide and Conquer Pattern`):
+```
+function search(arr, value) {
+  let max = arr.length - 1;
+  let min = 0;
+
+  while (min <= max) {
+    let middleIndex = Math.floor((max + min) / 2);
+
+    if (arr[middleIndex] < value) {
+      min = middleIndex + 1;
+    } else if (arr[middleIndex] > value) {
+      max = middleIndex - 1;
+    } else {
+      return middleIndex;
+    }
+  }
+  return -1;
+}
+```
+>Big O time complexity is `O(log n)`, which means that as the input size grows, the number of operations grows very slowly.
