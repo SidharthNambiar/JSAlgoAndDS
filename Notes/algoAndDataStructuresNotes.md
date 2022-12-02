@@ -1,6 +1,3 @@
-# **JAVASCRIPT ALGORITHMS & DATA STRUCTURES**
-
-
 # 1. Big O Notation
 
 ## 1.1. <ins>Intro To Big O</ins>
@@ -28,7 +25,6 @@
 - Useful for discussing trade-offs between different approaches
 - Identify inefficiencies in our code
 - Interviews
----
 
 ## 1.2. <ins>Timing Our Code</ins>
 
@@ -87,7 +83,6 @@ console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`)
 
 > We want to be able to be able to talk about code in general terms, without having to measure time, and that's where Big O comes into play
 
-___
 
 ## 1.3. <ins>Counting Operations</ins>
 
@@ -134,7 +129,7 @@ Counting operations for the slower solution:
 - n comparison
   1. `i <= n`
 > Depending on what we count, the number of operations can be as low as 2n or as high as 5n+2. But regardless of the exact number, the number of operations grow roughly proportionally with n
-___
+
 ## 1.4. <ins>Visualizing Time Complexities</ins>
 
 ### A. Performance Tracker
@@ -142,7 +137,7 @@ ___
 
 >![Performance Tracker](02-01.png)
 >In regards to the example above, as `n` increases, the execution time for the faster solution remains <ins>constant</ins>, whereas, for the slower solution, the time continues to increase <ins>linearly</ins>, as seen from the graph above.
-___
+
 ## 1.5. <ins>Official Intro to Big O</ins>
 
 ### A. Big O
@@ -230,7 +225,7 @@ function printAllPairs(n) {
 >`O(n)` operation inside of an `O(n)` operation is `O(n*n)`, which is `O(n`<sup>`2`</sup>`)`, so as `n` grows, the runtime growth is <ins>quadratic</ins>.
 
 >An `O(n)` inside an `O(n)` is `O(n`<sup>`2`</sup>`)`
-___
+
 ## 1.6. <ins>Simplifying Big O Expressions</ins>
 
 ### A. General Rules
@@ -285,7 +280,7 @@ function logAtMost5(n) {
 ### C. Big O Complexity Chart
 
 >![Big O Complexity Chart](02-05.png)
-___
+
 ## 1.7. <ins>Space Complexity</ins>
 
 ### A. Space vs Time Complexities
@@ -315,7 +310,7 @@ ___
 >![Sum Example](02-07.png)
 > As the input grows, the newArr grows directly in proportion to it, therefore, Big O is `O(n)`
 
-___
+
 ## 1.8. <ins>Logs and Section Recap</ins>
 >Sometimes Big O expressions involve more complex mathematical expressions, such as logarithms
 
@@ -333,7 +328,7 @@ ___
 > - Certain <ins>searching</ins> algorithms have logarithmic **time** complexity
 > - Efficient <ins>sorting</ins> algorithms involve logarithms
 > - <ins>Recursion</ins> sometimes involves logarithmic <ins>space</ins> complexity
-___
+
 ## 1.9. <ins>Recap</ins>
 
 > - To analyze the performance of an algorithm, we use Big O notation
@@ -341,7 +336,9 @@ ___
 > - Big O Notation doesn't care about precision, only about trends
 > - The time and space complexity only depends on the algorithm, not the hardware used to run the algorithm
 
-___
+
+
+<div style="page-break-after: always;"></div>
 
 # 2. Analyzing Performance of Arrays and Objects
 
@@ -351,7 +348,6 @@ ___
 - Understand how arrays and objects work through the lens of `Big O`
 - Explain why adding elements to the beginning of an array is costly
 - Compare and contrast the runtime for arrays and objects, as well as built-in methods
-___
 
 ## 2.2. <ins>The Big O of Objects</ins>
 >![Objects](03-01.png)
@@ -368,7 +364,7 @@ ___
 
 ### C. Big O of Object Methods
 >![Big O of Object Methods](03-03.png)
-___
+
 ## 2.3. <ins>When are Arrays Slow?</ins>
 >![Arrays](03-04.png)
 
@@ -392,13 +388,14 @@ ___
 
 ### C. Big O of Array Operations
 >![Big O of Arrays Operations](03-06.png)
-___
+
 ## 2.4. <ins>Recap</ins>
 - Object are fast, but there's no order.
 - Arrays are great when you need order and plan on inserting and removing only at the end of an array. 
 - Inserting/removing from the beginning and the middle of an array will cause re-indexing of the array.
 
-___
+<div style="page-break-after: always;"></div>
+
 
 # 3. Problem Solving Approach
 
@@ -422,7 +419,7 @@ ___
 > 3. Break It Down
 > 4. Solve/Simplify
 > 5. Look Back and Refactor
-___
+
 
 ## 3.2. <ins>STEP 1 - Understand The Problem</ins>
 
@@ -455,7 +452,7 @@ Before you start solving the problems, ask yourself these questions:
      - what matters?
      - num1, num2, sum (variable names)   
 
-___
+
 
 ## 3.3. <ins>STEP 2 - Concrete Examples</ins>
 
@@ -492,7 +489,7 @@ Coming up with examples can help you understand the problem better and examples 
           - object?
           - null?
 
-___
+
 
 ## 3.4. <ins>STEP 3 - Break It Down</ins>
 
@@ -532,7 +529,7 @@ ___
   >If you don't manage to solve the problem, make sure to layout your thought process in layman terms or pseudo code, and make sure you verbally talk through your process of solving the problem.
 
 
-___
+
 ## 3.5. <ins>STEP 4 - Solve Or Simplify</ins>
 
 ### A. SIMPLIFY
@@ -587,7 +584,7 @@ ___
         - Do some research if allowed
         - Ask the interviewer for hint/suggestions after demonstrating your though process and solving a simplified solution
 
-___
+
 ## 3.6. <ins>STEP 5 - Look Back and Refactor</ins>
 
 ### A. Refactoring Questions
@@ -601,12 +598,12 @@ ___
 
 
 
-___
+
 ## 3.7. <ins>Recap and Interview Strategies</ins>
 
 >Steps 1 to 5 help us in devising a plan for solving problems.
 
-___
+<div style="page-break-after: always;"></div>
 
 # 4. Problem Solving Patterns
 
@@ -616,7 +613,7 @@ ___
 ### A. Some Common Patterns
 
 >![Some Patterns](05-01.png)
-___
+
 
 ## 4.2. <ins>Frequency Counter Pattern</ins>
 
@@ -713,7 +710,7 @@ function validAnagram(str1, str2) {
 }
 ```
 >Big O is `O(2n)`, which simplifies to `O(n)`
-___
+
 
 ## 4.3. <ins>Multiple Pointers Pattern</ins>
 > Creating `pointers` or values that correspond to an `index` or position and move towards the `beginning`, `end` or `middle` based on a certain `condition`. Very efficient for solving problems with `minimal space complexity` as well.
@@ -821,9 +818,9 @@ function countUniqueValues(sortedArr) {
 ```
 > The Big O is `O(n)` for time complexity, and `O(1)` for space complexity since a primitive variable is used to store count.
 
-___
 
-## 4.5. <ins>Sliding Window Pattern</ins>
+
+## 4.4. <ins>Sliding Window Pattern</ins>
 >This pattern involves creating a `window` which can either be an array or number from one position to another. Depending on a certain condition, the window either increases or closes(and a new window is created). Very useful for keeping `track` of a `subset of data` in an array/string etc.
 
 ### A. EXAMPLE: maxSubarraySum
@@ -876,9 +873,9 @@ function maxSubarraySum(arr, num){
 
 ```
 >The Big O in this case for time complexity is `O(n)` since two separate loops are being utilized as oppose to the naive solution which uses nested loops.
-___
 
-## 4.6. <ins>Divide And Conquer Pattern</ins>
+
+## 4.5. <ins>Divide And Conquer Pattern</ins>
 >This pattern involves dividing a data set into smaller chunks and then repeating a process with a subset of data. this pattern can `decrease time complexity`. Examples of divide and conquer algorithms: `quick sort, merge sort, binary search`
 
 ### A. EXAMPLE: search
@@ -919,7 +916,7 @@ function search(arr, value) {
 ```
 >Big O time complexity is `O(log n)`, which means that as the input size grows, the number of operations grows very slowly.
 
-___
+<div style="page-break-after: always;"></div>
 
 # 5. Optional Challenges
 
@@ -931,7 +928,7 @@ ___
     - `Return new Set(arguments).size !== arguments.length;`
 3. Multiple pointer pattern might slightly worsen time complexity but you'll see the space complexity improve significantly.
 
-___
+<div style="page-break-after: always;"></div>
 
 # 6. Recursion
 
@@ -943,7 +940,7 @@ ___
 - Visualize the call stack to better debug and understand recursive function
 - Use helper method recursion and pure recursion to solve more difficult problems
 
-___
+
 ## 6.2. <ins>Why Use Recursion?</ins>
 
 ### A. What is recursion?
@@ -954,8 +951,8 @@ ___
 
 ![Objects](07-01.png)
 
-___
-## 6.3. <ins>he Call Stack</ins>
+
+## 6.3. <ins>The Call Stack</ins>
 
 >In almost all program languages, there is a built in data structure that manages what happens when functions are invoked, it's called a call stack.
 
@@ -971,27 +968,27 @@ on the `top of the call stack`
 - You're used to functions being pushed on the call stack and popped off when they are done
 - When we write `recursive` functions, we `keep pushing` new functions onto the `call stack`!
 
-___
-## 6.4. <ins>ur First Recursive Function</ins>
 
-___
-## 6.5. <ins>ur Second Recursive Function</ins>
+## 6.4. <ins>Our First Recursive Function</ins>
 
-___
-## 6.6. <ins>riting Factorial Iteratively</ins>
 
-___
-## 6.7. <ins>riting Factorial Recursively</ins>
+## 6.5. <ins>Our Second Recursive Function</ins>
 
-___
-## 6.8. <ins>ommon Recursion Pitfalls</ins>
 
-___
-## 6.9. <ins>elper Method Recursion</ins>
+## 6.6. <ins>Writing Factorial Iteratively</ins>
 
-___
+
+## 6.7. <ins>Writing Factorial Recursively</ins>
+
+
+## 6.8. <ins>Common Recursion Pitfalls</ins>
+
+
+## 6.9. <ins>Helper Method Recursion</ins>
+
+
 ## 6.10.<ins>Pure Recursion</ins>
 
-___
+<div style="page-break-after: always;"></div>
 
 
